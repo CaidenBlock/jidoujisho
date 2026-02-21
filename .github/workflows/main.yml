@@ -27,3 +27,9 @@ jobs:
       working-directory: yuuna
     - run: flutter build apk --target-platform=android-arm64
       working-directory: yuuna
+      # Upload the APK
+    - name: Upload APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: yuuna-release-apk
+        path: yuuna/build/app/outputs/flutter-apk/app-release.apk
