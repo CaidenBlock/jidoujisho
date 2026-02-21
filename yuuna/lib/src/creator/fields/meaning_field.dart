@@ -110,7 +110,8 @@ class MeaningField extends Field {
     List<DictionaryEntry> entries = heading.entries
         .where((entry) {
           final dict = entry.dictionary.value;
-          if (dict == null) {
+          if (dict == null) 
+          {
             return false;
           }
           return !(dictionaryNamesByHidden[dict.name] ?? true);
