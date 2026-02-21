@@ -49,10 +49,12 @@ class MeaningField extends Field {
       }
 
       for (DictionaryEntry entry in singleDictionaryEntries) {
-        if (entry.dictionary.value == null) continue;
+        if (entry.dictionary.value == null) {
+          continue;
+        }
         DictionaryFormat dictionaryFormat =
             appModel.getDictionaryFormat(entry.dictionary.value!);
-
+      
         if (singleDictionaryEntries.length == 1) {
           entry.definitions.forEachIndexed((index, meaning) {
             if (dictionaryFormat.shouldUseCustomDefinitionWidget(meaning)) {
@@ -114,7 +116,7 @@ class MeaningField extends Field {
         .toList();
     if (dictionaryName != null) {
       entries = [
-        ...entries.where((e) => dictionaryName == e.dictionary.value?.name)
+        ...entries.where((e) => dictionaryName == e.dictionary.value?.name),
       ];
     }
     entries.sort((a, b) {
